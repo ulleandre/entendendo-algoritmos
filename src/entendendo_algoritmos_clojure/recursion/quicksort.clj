@@ -2,10 +2,10 @@
 
 (defn execute
   [values]
-  (let [pivot (some-> values last)
-        rest-values (or (some-> values butlast) [])
-        left (or (some->> rest-values (filter #(< % pivot))) [])
-        right (or (some->> rest-values (filter #(>= % pivot))) [])]
-    (flatten (concat [(if (> (count left) 1) (execute left) left)]
+  (let [pivot (last values)
+        rest-values (butlast values)
+        left (filter #(< % pivot) rest-values)
+        right (filter #(>= % pivot) rest-values)]
+    (flatten (concat (if (> (count left) 1) (execute left) left)
                      [pivot]
-                     [(if (> (count right) 1) (execute right) right)]))))
+                     (if (> (count right) 1) (execute right) right)))))
