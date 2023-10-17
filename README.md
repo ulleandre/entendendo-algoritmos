@@ -1,10 +1,10 @@
 # entendendo-algoritmos-clojure
 
-A Clojure library designed to ... well, that part is up to you.
+I created this repository to practice the algorithms using Clojure.
 
 ## Usage
 
-FIXME
+For execute tests use: `lein tests`
 
 ## License
 
